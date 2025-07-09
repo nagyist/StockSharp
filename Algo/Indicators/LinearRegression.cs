@@ -124,35 +124,30 @@ public class LinearRegression : BaseComplexIndicator<LinearRegressionValue>
 /// <summary>
 /// <see cref="LinearRegression"/> indicator value.
 /// </summary>
-public class LinearRegressionValue : ComplexIndicatorValue<LinearRegression>
+/// <remarks>
+/// Initializes a new instance of the <see cref="LinearRegressionValue"/>.
+/// </remarks>
+/// <param name="indicator"><see cref="LinearRegression"/></param>
+/// <param name="time"><see cref="IIndicatorValue.Time"/></param>
+public class LinearRegressionValue(LinearRegression indicator, DateTimeOffset time) : ComplexIndicatorValue<LinearRegression>(indicator, time)
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="LinearRegressionValue"/>.
-	/// </summary>
-	/// <param name="indicator"><see cref="LinearRegression"/></param>
-	/// <param name="time"><see cref="IIndicatorValue.Time"/></param>
-	public LinearRegressionValue(LinearRegression indicator, DateTimeOffset time)
-		: base(indicator, time)
-	{
-	}
-
 	/// <summary>
 	/// Gets the <see cref="LinearRegression.LinearReg"/> value.
 	/// </summary>
-	public decimal LinearReg => GetInnerDecimal(TypedIndicator.LinearReg);
+	public decimal? LinearReg => GetInnerDecimal(TypedIndicator.LinearReg);
 
 	/// <summary>
 	/// Gets the <see cref="LinearRegression.RSquared"/> value.
 	/// </summary>
-	public decimal RSquared => GetInnerDecimal(TypedIndicator.RSquared);
+	public decimal? RSquared => GetInnerDecimal(TypedIndicator.RSquared);
 
 	/// <summary>
 	/// Gets the <see cref="LinearRegression.LinearRegSlope"/> value.
 	/// </summary>
-	public decimal LinearRegSlope => GetInnerDecimal(TypedIndicator.LinearRegSlope);
+	public decimal? LinearRegSlope => GetInnerDecimal(TypedIndicator.LinearRegSlope);
 
 	/// <summary>
 	/// Gets the <see cref="LinearRegression.StandardError"/> value.
 	/// </summary>
-	public decimal StandardError => GetInnerDecimal(TypedIndicator.StandardError);
+	public decimal? StandardError => GetInnerDecimal(TypedIndicator.StandardError);
 }

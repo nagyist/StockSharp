@@ -99,40 +99,35 @@ public class PivotPointPart : BaseIndicator
 /// <summary>
 /// <see cref="PivotPoints"/> indicator value.
 /// </summary>
-public class PivotPointsValue : ComplexIndicatorValue<PivotPoints>
+/// <remarks>
+/// Initializes a new instance of the <see cref="PivotPointsValue"/>.
+/// </remarks>
+/// <param name="indicator"><see cref="PivotPoints"/></param>
+/// <param name="time"><see cref="IIndicatorValue.Time"/></param>
+public class PivotPointsValue(PivotPoints indicator, DateTimeOffset time) : ComplexIndicatorValue<PivotPoints>(indicator, time)
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="PivotPointsValue"/>.
-	/// </summary>
-	/// <param name="indicator"><see cref="PivotPoints"/></param>
-	/// <param name="time"><see cref="IIndicatorValue.Time"/></param>
-	public PivotPointsValue(PivotPoints indicator, DateTimeOffset time)
-		: base(indicator, time)
-	{
-	}
-
 	/// <summary>
 	/// Gets the Pivot Point value.
 	/// </summary>
-	public decimal PivotPoint => GetInnerDecimal(TypedIndicator.PivotPoint);
+	public decimal? PivotPoint => GetInnerDecimal(TypedIndicator.PivotPoint);
 
 	/// <summary>
 	/// Gets the R1 value.
 	/// </summary>
-	public decimal R1 => GetInnerDecimal(TypedIndicator.R1);
+	public decimal? R1 => GetInnerDecimal(TypedIndicator.R1);
 
 	/// <summary>
 	/// Gets the R2 value.
 	/// </summary>
-	public decimal R2 => GetInnerDecimal(TypedIndicator.R2);
+	public decimal? R2 => GetInnerDecimal(TypedIndicator.R2);
 
 	/// <summary>
 	/// Gets the S1 value.
 	/// </summary>
-	public decimal S1 => GetInnerDecimal(TypedIndicator.S1);
+	public decimal? S1 => GetInnerDecimal(TypedIndicator.S1);
 
 	/// <summary>
 	/// Gets the S2 value.
 	/// </summary>
-	public decimal S2 => GetInnerDecimal(TypedIndicator.S2);
+	public decimal? S2 => GetInnerDecimal(TypedIndicator.S2);
 }
