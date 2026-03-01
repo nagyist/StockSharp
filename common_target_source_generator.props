@@ -1,6 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="common_target_standard.props" />
+  <Import Project="common_target_common.props" />
   <PropertyGroup>
+    <StockSharpTargets Condition="'$(StockSharpTargets)' == ''">netstandard2.0</StockSharpTargets>
+    <TargetFrameworks>$(StockSharpTargets)</TargetFrameworks>
     <IsRoslynComponent>true</IsRoslynComponent>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <IsPackable>false</IsPackable>

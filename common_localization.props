@@ -1,5 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="common_target_standard.props" />
+  <Import Project="common_target_net.props" />
   <ItemGroup>
     <EmbeddedResource Include="strings.json" />
   </ItemGroup>
